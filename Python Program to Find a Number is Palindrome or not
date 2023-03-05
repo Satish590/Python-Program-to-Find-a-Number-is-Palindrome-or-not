@@ -1,0 +1,62 @@
+#Method 1: Using Simple Iteration
+num = int(input())
+temp = num
+reverse = 0
+while num > 0:
+    reminder = int(num%10)
+    reverse = (reverse*10) + reminder
+    num = num//10
+
+if temp == reverse:
+    print('given number is a palindrome number')
+else:
+    print('not a palindrome number')
+#Method 2: Using String Slicing
+num = input()
+reverse = str(num[::-1])
+if reverse == num:
+    print('given number is palindrome number')
+else:
+    print('not a palindrome number')
+#Method 3: Using Recursion
+def recurse(num,reverse):
+    if num == 0:
+        return reverse
+    reminder = int(num%10)
+    reverse = (reverse*10) + reminder
+    return recurse(int(num/10),reverse)
+num = int(input())
+reverse = 0
+reverse =recurse(num,reverse)
+print(str(num) + ' is :', end = '')
+print('palindrom' if num == reverse else 'not palindrome')
+#Method 4: Using Character matching
+def stringchange(str):
+    for i in range(0,len(str)):
+        if str[i] != str[len(str)-i-1]:
+            return  False
+    return True
+str = input()
+print('palindrome' if stringchange(str) else 'not palindrome')
+#Method 6: Using In-Built reversed function
+def check(str):
+    mid = int(len(str)/2)
+    for i in range(0,mid):
+        if str[i] != str[len(str)-i-1]:
+            return False
+    return True
+str = input()
+print('palindrome' if stringchange(str) else 'not palindrome')
+def check(str):
+    reverse = ''.jion(reversed(str))
+    if str == reverse:
+        return True
+    return False
+str = input()
+print('palindrome' if stringchange(str) else 'not a palindrome')
+
+str = input()
+rev = ''
+for char in str:
+    rev = char + rev
+print('palindrome' if str == rev else 'not a plindrome')
